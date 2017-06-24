@@ -1,0 +1,15 @@
+version: '2.1'
+
+services:
+    tftpd:
+        extends:
+            file: ../base.yml
+            service: app
+        container_name: tftpd
+        image: pghalliday/tftp:latest
+        volumes:
+            - ${data_folder}/tftpd/tftproot:/var/tftpboot
+        restart: always
+        ports:
+            - 69:69/udp
+        command: ["-vvvv", "--user", "root", "-L", "--secure", "/var/tftpboot"]

@@ -1,0 +1,9 @@
+version: '2.1'
+
+services:
+    powercli:
+        env_file: .env
+        container_name: powercli
+        image: vmware/powerclicore
+        volumes:
+            - ${data_folder}/powercli/data:/data

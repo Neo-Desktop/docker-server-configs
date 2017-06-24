@@ -1,0 +1,3 @@
+[submodule "elk-stack"]
+	path = elk-stack
+	url = https://github.com/elastic/stack-docker
