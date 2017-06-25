@@ -1,0 +1,15 @@
+version: '2.1'
+
+services:
+    portainer:
+        extends:
+            file: portainer/portainer.yml
+            service: portainer
+    samba:
+        extends:
+            file: samba/samba.yml
+            service: samba
+    sftp:
+        extends:
+            file: sftp/sftp.yml
+            service: sftp

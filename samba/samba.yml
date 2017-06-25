@@ -1,0 +1,19 @@
+version: '2.1'
+
+services:
+    samba:
+        extends:
+            file: ../base.yml
+            service: app
+        container_name: samba
+        image: dperson/samba:latest
+        volumes:
+            - ${base_folder}:/mount
+            - ${data_folder}/samba/etc/samba:/etc/samba
+            - ${data_folder}/samba/var/lib/samba:/var/lib/samba
+        restart: always
+        ports:
+            - 137:137/udp
+            - 138:138/udp
+            - 139:139/tcp
+            - 445:445/tcp

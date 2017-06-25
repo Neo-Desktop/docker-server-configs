@@ -1,3 +1,8 @@
 {
-    "graph": "/opt/.docker/docker"
+    "graph": "/opt/.docker/docker",
+    "storage-driver": "btrfs",
+    "log-driver": "journald",
+    "log-opts": {
+        "tag": "{{.Name}}/{{.ID}}"
+    }
 }
