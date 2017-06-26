@@ -1,0 +1,14 @@
+version: '2.1'
+
+services:
+    ombi:
+        extends:
+            file: ../base.yml
+            service: app
+        container_name: ombi
+        image: linuxserver/ombi:latest
+        volumes:
+            - ${data_folder}/ombi/config:/config
+        restart: always
+        ports:
+            - 3579:3579

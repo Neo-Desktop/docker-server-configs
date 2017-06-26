@@ -1,0 +1,16 @@
+version: '2.1'
+
+services:
+    couchpotato:
+        extends:
+            file: ../base.yml
+            service: app
+        container_name: couchpotato
+        image: linuxserver/couchpotato:latest
+        volumes:
+            - ${base_folder}/vault/Movies:/movies
+            - ${base_folder}/vault/downloads/movies:/downloads
+            - ${data_folder}/couchpotato/config:/config
+        restart: always
+        ports:
+            - 5050:5050

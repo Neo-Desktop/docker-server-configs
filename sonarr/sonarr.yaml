@@ -1,0 +1,16 @@
+version: '2.1'
+
+services:
+    sonarr:
+        extends:
+            file: ../base.yml
+            service: app
+        container_name: sonarr
+        image: linuxserver/sonarr:latest
+        volumes:
+            - ${base_folder}/vault/TV:/tv
+            - ${base_folder}/vault/downloads/tv:/downloads
+            - ${data_folder}/sonarr/config:/config
+        restart: always
+        ports:
+            - 8989:8989

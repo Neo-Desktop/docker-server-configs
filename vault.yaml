@@ -1,0 +1,47 @@
+version: '2.1'
+
+services:
+    portainer:
+        extends:
+            file: portainer/portainer.yaml
+            service: portainer
+    samba:
+        extends:
+            file: samba/samba.yaml
+            service: samba
+    plex:
+        extends:
+            file: plex/plex.yaml
+            service: plex
+    organizr:
+        extends:
+            file: organizr/organizr.yaml
+            service: organizr
+    plexpy:
+        extends:
+            file: plexpy/plexpy.yaml
+            service: plexpy
+    ombi:
+        extends:
+            file: ombi/ombi.yaml
+            service: ombi
+    nginx:
+        extends:
+            file: nginx/nginx.yaml
+            service: nginx
+    sabnzbd:
+        extends:
+            file: sabnzbd/sabnzbd.yaml
+            service: sabnzbd
+    couchpotato:
+        extends:
+            file: couchpotato/couchpotato.yaml
+            service: couchpotato
+    sonarr:
+        extends:
+            file: sonarr/sonarr.yaml
+            service: sonarr
+    hydra:
+        extends:
+            file: hydra/hydra.yaml
+            service: hydra

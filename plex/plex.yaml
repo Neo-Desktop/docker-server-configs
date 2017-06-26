@@ -1,0 +1,15 @@
+version: '2.1'
+
+services:
+    plex:
+        extends:
+            file: ../base.yml
+            service: app
+        container_name: plex
+        image: plexinc/pms-docker:plexpass
+        volumes:
+            - ${base_folder}/vault:/data
+            - ${data_folder}/plex/config:/config
+            - ${data_folder}/plex/transcode:/transcode
+        restart: always
+        network_mode: "host"

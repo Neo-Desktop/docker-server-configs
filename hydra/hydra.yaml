@@ -1,0 +1,15 @@
+version: '2.1'
+
+services:
+    hydra:
+        extends:
+            file: ../base.yml
+            service: app
+        container_name: hydra
+        image: linuxserver/hydra:latest
+        volumes:
+            - ${base_folder}/vault/downloads:/downloads
+            - ${data_folder}/hydra/config:/config
+        restart: always
+        ports:
+            - 5075:5075

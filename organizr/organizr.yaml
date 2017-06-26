@@ -1,0 +1,14 @@
+version: '2.1'
+
+services:
+    organizr:
+        extends:
+            file: ../base.yml
+            service: app
+        container_name: organizr
+        image: lsiocommunity/organizr:latest
+        volumes:
+            - ${data_folder}/organizr/config:/config
+        restart: always
+        ports:
+            - 80:80

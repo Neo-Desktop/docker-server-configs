@@ -1,0 +1,17 @@
+version: '2.1'
+
+services:
+    sabnzbd:
+        extends:
+            file: ../base.yml
+            service: app
+        container_name: sabnzbd
+        image: linuxserver/sabnzbd:latest
+        volumes:
+            - ${base_folder}/vault/downloads:/downloads
+            - ${base_folder}/vault/downloads/incomplete:/incomplete-downloads
+            - ${data_folder}/sabnzbd/config:/config
+        restart: always
+        ports:
+            - 8080:8080
+            - 9090:9090

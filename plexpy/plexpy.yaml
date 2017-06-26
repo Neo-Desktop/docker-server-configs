@@ -1,0 +1,15 @@
+version: '2.1'
+
+services:
+    plexpy:
+        extends:
+            file: ../base.yml
+            service: app
+        container_name: plexpy
+        image: linuxserver/plexpy:latest
+        volumes:
+            - ${data_folder}/plexpy/config:/config
+            - ${data_folder}/plex/config/Library/Application Support/Plex Media Server/Logs/:/config:ro
+        restart: always
+        ports:
+            - 8181:8181
