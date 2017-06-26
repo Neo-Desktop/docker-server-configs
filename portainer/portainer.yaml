@@ -1,0 +1,15 @@
+version: '2.1'
+
+services:
+    portainer:
+        extends:
+            file: ../base.yaml
+            service: app
+        container_name: portainer
+        image: portainer/portainer:latest
+        volumes:
+            - ${data_folder}/portainer/data:/data
+            - /var/run/docker.sock:/var/run/docker.sock
+        restart: always
+        ports:
+            - 9000:9000
