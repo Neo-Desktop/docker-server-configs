@@ -3,7 +3,7 @@ version: '2.1'
 services:
     portainer:
         extends:
-            file: ../base.yml
+            file: ../base.yaml
             service: app
         container_name: portainer
         image: portainer/portainer:latest

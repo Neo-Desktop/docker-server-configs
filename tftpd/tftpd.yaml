@@ -3,7 +3,7 @@ version: '2.1'
 services:
     tftpd:
         extends:
-            file: ../base.yml
+            file: ../base.yaml
             service: app
         container_name: tftpd
         image: pghalliday/tftp:latest

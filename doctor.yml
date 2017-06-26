@@ -3,21 +3,21 @@ version: '2.1'
 services:
     portainer:
         extends:
-            file: portainer/portainer.yml
+            file: portainer/portainer.yaml
             service: portainer
     samba:
         extends:
-            file: samba/samba.yml
+            file: samba/samba.yaml
             service: samba
     softethervpn:
         extends:
-            file: softethervpn/softethervpn.yml
+            file: softethervpn/softethervpn.yaml
             service: softethervpn
     tftpd:
         extends:
-            file: tftpd/tftpd.yml
+            file: tftpd/tftpd.yaml
             service: tftpd
     nginx:
         extends:
-            file: nginx/nginx.yml
+            file: nginx/nginx.yaml
             service: nginx
