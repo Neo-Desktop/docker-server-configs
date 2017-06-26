@@ -3,7 +3,7 @@ version: '2.1'
 services:
     hydra:
         extends:
-            file: ../base.yml
+            file: ../base.yaml
             service: app
         container_name: hydra
         image: linuxserver/hydra:latest

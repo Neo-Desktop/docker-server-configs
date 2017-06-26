@@ -3,7 +3,7 @@ version: '2.1'
 services:
     organizr:
         extends:
-            file: ../base.yml
+            file: ../base.yaml
             service: app
         container_name: organizr
         image: lsiocommunity/organizr:latest

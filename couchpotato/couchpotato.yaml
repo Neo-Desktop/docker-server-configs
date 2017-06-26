@@ -3,7 +3,7 @@ version: '2.1'
 services:
     couchpotato:
         extends:
-            file: ../base.yml
+            file: ../base.yaml
             service: app
         container_name: couchpotato
         image: linuxserver/couchpotato:latest
