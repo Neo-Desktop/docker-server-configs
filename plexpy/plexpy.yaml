@@ -9,7 +9,7 @@ services:
         image: linuxserver/plexpy:latest
         volumes:
             - ${data_folder}/plexpy/config:/config
-            - ${data_folder}/plex/config/Library/Application Support/Plex Media Server/Logs/:/config:ro
+            - ${data_folder}/plex/config/Library/Application Support/Plex Media Server/Logs/:/logs:ro
         restart: always
         ports:
             - 8181:8181
