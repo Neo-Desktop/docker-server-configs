@@ -45,3 +45,7 @@ services:
         extends:
             file: hydra/hydra.yaml
             service: hydra
+    transmission:
+        extends:
+            file: transmission/transmission.yaml
+            service: transmission
