@@ -17,4 +17,4 @@ services:
             - NET_ADMIN
         devices:
             - /dev/net/tun
-        network_type: host
+        network_mode: host
