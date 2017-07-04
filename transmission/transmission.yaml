@@ -7,14 +7,14 @@ services:
             service: app
         container_name: transmission
         image: haugene/transmission-openvpn
-		env_file: .env
+        env_file: .env
         volumes:
             - ${base_folder}/vault/downloads/transmission:/data
             - ${data_folder}/transmission/config:/config
-			- ${data_folder}/transmission/data:/data/transmission-home
+            - ${data_folder}/transmission/data:/data/transmission-home
         restart: always
-		cap_add:
-			- NET_ADMIN
-		devices:
-			- /dev/net/tun
-		network_type: host
+        cap_add:
+            - NET_ADMIN
+        devices:
+            - /dev/net/tun
+        network_type: host
