@@ -6,15 +6,9 @@ services:
             file: ../base.yaml
             service: app
         container_name: transmission
-        image: haugene/transmission-openvpn
-        env_file: .env
+        image: linuxserver/transmission
         volumes:
-            - ${base_folder}/vault/downloads/transmission:/data
+            - ${base_folder}/vault/watch/transmission:/watch
+            - ${base_folder}/vault/downloads/transmission:/downloads
             - ${data_folder}/transmission/config:/config
-            - ${data_folder}/transmission/data:/data/transmission-home
         restart: always
-        cap_add:
-            - NET_ADMIN
-        devices:
-            - /dev/net/tun
-        network_mode: host

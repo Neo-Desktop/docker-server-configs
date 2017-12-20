@@ -1,0 +1,13 @@
+version: '2.1'
+
+services:
+    adaptec:
+        extends:
+            file: ../base.yaml
+            service: app
+        container_name: adaptec
+        image: neobiscuit/adaptec-storage-manager
+        restart: "no"
+        cap_add:
+            - SYS_ADMIN
+        privileged: true

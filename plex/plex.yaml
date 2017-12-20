@@ -10,7 +10,10 @@ services:
         volumes:
             - ${base_folder}/vault:/data
             - ${data_folder}/plex/config:/config
-            - ${data_folder}/plex/transcode:/transcode
+            - /tmp/transcode/plex:/transcode
+        cap_add:
+            - SYS_ADMIN
+        privileged: true
         restart: always
         ports:
             - 32400:32400/tcp
@@ -22,3 +25,5 @@ services:
             - 32412:32412/udp
             - 32413:32413/udp
             - 32414:32414/udp
+            - 33400:33400/tcp
+            - 33443:33443/tcp

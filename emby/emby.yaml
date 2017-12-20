@@ -1,0 +1,21 @@
+version: '2.1'
+
+services:
+    emby:
+        extends:
+            file: ../base.yaml
+            service: app
+        container_name: emby
+        image: emby/embyserver
+        volumes:
+            - ${base_folder}/vault:/data
+            - ${data_folder}/emby/config:/config
+            - /tmp/transcode/emby:/transcode
+        restart: always
+        cap_add:
+            - SYS_ADMIN
+        privileged: true
+        ports:
+            - 8096:8096/tcp
+            - 8920:8920/tcp
+

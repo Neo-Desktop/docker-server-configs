@@ -1,3 +1,4 @@
 {
+    "storage-driver": "btrfs",
     "graph": "/opt/.docker/docker"
 }

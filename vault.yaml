@@ -2,50 +2,108 @@ version: '2.1'
 
 services:
     portainer:
+        networks:
+            - vault
         extends:
             file: portainer/portainer.yaml
             service: portainer
     samba:
+        networks:
+            - vault
         extends:
             file: samba/samba.yaml
             service: samba
     plex:
+        networks:
+           - vault
         extends:
-            file: plex/plex.yaml
-            service: plex
+           file: plex/plex.yaml
+           service: plex
+    emby:
+        networks:
+           - vault
+        extends:
+            file: emby/emby.yaml
+            service: emby
     organizr:
+        networks:
+           - vault
         extends:
             file: organizr/organizr.yaml
             service: organizr
     plexpy:
+        networks:
+           - vault
         extends:
             file: plexpy/plexpy.yaml
             service: plexpy
     ombi:
+        networks:
+           - vault
         extends:
             file: ombi/ombi.yaml
             service: ombi
     nginx:
+        networks:
+           - vault
+           - vpn
+        external_links:
+            - openvpn:transmission
+            - ombi:ombi
         extends:
             file: nginx/nginx.yaml
             service: nginx
     sabnzbd:
+        networks:
+           - vault
         extends:
             file: sabnzbd/sabnzbd.yaml
             service: sabnzbd
     couchpotato:
+        networks:
+           - vault
+        external_links:
+           - nginx:transmission
         extends:
             file: couchpotato/couchpotato.yaml
             service: couchpotato
     sonarr:
+        networks:
+           - vault
+        external_links:
+           - nginx:transmission
         extends:
             file: sonarr/sonarr.yaml
             service: sonarr
     hydra:
+        networks:
+           - vault
         extends:
             file: hydra/hydra.yaml
             service: hydra
-    transmission:
+    cardigann:
+        networks:
+           - vault
         extends:
-            file: transmission/transmission.yaml
-            service: transmission
+            file: cardigann/cardigann.yaml
+            service: cardigann
+#    transmission:
+#        network_mode: "service:openvpn"
+#        extends:
+#            file: transmission/transmission.yaml
+#            service: transmission
+#    openvpn:
+#        networks:
+#           - vpn
+#        extends:
+#           file: openvpn/openvpn.yaml
+#           service: openvpn
+
+networks:
+    vpn:
+        driver: bridge
+    vault:
+        driver: bridge
+    default:
+        external:
+            name: vault

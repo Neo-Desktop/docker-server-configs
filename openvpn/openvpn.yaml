@@ -1,0 +1,24 @@
+version: '2.1'
+
+services:
+    openvpn:
+        extends:
+            file: ../base.yaml
+            service: app
+        container_name: openvpn
+        image: dperson/openvpn-client
+        volumes:
+            - ${data_folder}/openvpn/vpn:/vpn
+        restart: always
+        cap_add:
+            - NET_ADMIN
+        dns:
+            - 8.8.8.8
+            - 8.8.4.4
+        security_opt:
+            - label:disable
+        stdin_open: true
+        tty: true
+        environment:
+            FIREWALL:
+        command: ["-f", ""]

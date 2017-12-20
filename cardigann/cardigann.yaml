@@ -1,0 +1,14 @@
+version: '2.1'
+
+services:
+    cardigann:
+        extends:
+            file: ../base.yaml
+            service: app
+        container_name: cardigann
+        image: linuxserver/cardigann:latest
+        volumes:
+            - ${data_folder}/cardigann/config:/config
+        restart: always
+        ports:
+            - 5060:5060
